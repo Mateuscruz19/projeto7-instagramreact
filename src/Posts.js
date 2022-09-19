@@ -23,7 +23,7 @@ function PostsLayout(props) {
         </div>
 
         <div class="conteudo">
-          <img src={props.imagempost} />
+          <img src={props.imagempost} onClick={darLike} />
         </div>
 
         <div class="fundo">
