@@ -1,4 +1,15 @@
+import React from "react"
+
 function PostsLayout(props) {
+
+  function darLike(){
+    setLike("Heart")
+    setCor("vermelho")
+  }
+
+  const [likezinho, setLike] = React.useState("Heart-outline")
+  const [cor, setCor] = React.useState("")
+
   return (
       <div class="post">
         <div class="topo">
@@ -18,7 +29,7 @@ function PostsLayout(props) {
         <div class="fundo">
           <div class="acoes">
             <div>
-              <ion-icon name="heart-outline"></ion-icon>
+              <ion-icon class={cor} name={likezinho} onClick={darLike}></ion-icon>
               <ion-icon name="chatbubble-outline"></ion-icon>
               <ion-icon name="paper-plane-outline"></ion-icon>
             </div>
@@ -62,3 +73,5 @@ export default function Posts() {
     </div>
 )
 }
+
+
