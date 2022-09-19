@@ -1,25 +1,31 @@
-function UsuarioLayout(props) {
-  return (
-    <div class="usuario">
-          <img src={props.imagem} />
-          <div class="texto">
-            <strong>{props.usuariop}</strong>
-            <span>
-              Catana
-              <ion-icon name="pencil"></ion-icon>
-            </span>
-          </div>
-        </div>
-  )
-}
-
+import React from "react"
 
 export default function Usuario() {
+  const fotoOriginal = "assets/img/catanacomics.svg"
 
-  const usuarioinstagram = [{ imagem: "assets/img/catanacomics.svg", usuariop: "catanacomics"}]
-    return (
-        <div>
-            {usuarioinstagram.map((u) => <UsuarioLayout imagem={u.imagem} usuariop={u.usuariop}/>)}
-        </div>
-    )
+  const [nome, setNome] = React.useState("")
+  const [foto, setFoto] = React.useState(fotoOriginal)
+
+  function inserirNome() {
+    const nomePrompt = prompt("Qual é o se nome?")
+    setNome(nomePrompt)
+  }
+
+  function inserirFoto() {
+    const fotoPrompt = prompt("Insira o link de uma foto aqui!")
+    setFoto(fotoPrompt)
+  }
+
+  return (
+    <div class="usuario">
+      <img onClick={inserirFoto} src={foto} />
+      <div class="texto">
+        <strong>{(nome === "" || nome === null) ? ("Catana") : `${nome}`}</strong>
+        <span>
+          @catanacomics
+          <ion-icon name="pencil" onClick={() => setNome(prompt("Insira o seu nome"))}></ion-icon>
+        </span>
+      </div>
+    </div>
+  )
 }

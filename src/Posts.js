@@ -57,7 +57,7 @@ export default function Posts() {
      imagempost={p.imagempost}
      imagemcurtida={p.imagemcurtida}
      usuariocurtida={p.usuariocurtida}
-     curtidas={p.usuariocurtida}
+     curtidas={(p.curtidas)}
      />)}
     </div>
 )
