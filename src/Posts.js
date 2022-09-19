@@ -7,9 +7,13 @@ function PostsLayout(props) {
     setCor("vermelho")
   }
 
+  function salvarPost(){
+    setSalvo("bookmark")
+  }
+
   const [likezinho, setLike] = React.useState("Heart-outline")
   const [cor, setCor] = React.useState("")
-
+  const [salvo, setSalvo] = React.useState("bookmark-outline")
   return (
       <div class="post">
         <div class="topo">
@@ -34,7 +38,7 @@ function PostsLayout(props) {
               <ion-icon name="paper-plane-outline"></ion-icon>
             </div>
             <div>
-              <ion-icon name="bookmark-outline"></ion-icon>
+              <ion-icon name={salvo} onClick={salvarPost}></ion-icon>
             </div>
           </div>
 
