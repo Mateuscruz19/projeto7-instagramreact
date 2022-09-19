@@ -3,7 +3,7 @@ import React from "react"
 export default function Usuario() {
   const fotoOriginal = "assets/img/catanacomics.svg"
 
-  const [nome, setNome] = React.useState("")
+  const [nome, setNome] = React.useState("Catana")
   const [foto, setFoto] = React.useState(fotoOriginal)
 
   function inserirNome() {
@@ -20,10 +20,10 @@ export default function Usuario() {
     <div class="usuario">
       <img onClick={inserirFoto} src={foto} />
       <div class="texto">
-        <strong>{(nome === "" || nome === null) ? ("Catana") : `${nome}`}</strong>
+        <strong>{nome}</strong>
         <span>
           @catanacomics
-          <ion-icon name="pencil" onClick={() => setNome(prompt("Insira o seu nome"))}></ion-icon>
+          <ion-icon name="pencil" onClick={inserirNome}></ion-icon>
         </span>
       </div>
     </div>
