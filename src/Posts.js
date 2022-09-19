@@ -3,17 +3,29 @@ import React from "react"
 function PostsLayout(props) {
 
   function darLike(){
+    if(likeselecionado === false ){
     setLike("Heart")
     setCor("vermelho")
+    setSelec(true)
+    }
+    else if(likeselecionado === true){
+      setLike("Heart-outline")
+      setCor("")
+      setSelec(false)
+    }
   }
 
   function salvarPost(){
     setSalvo("bookmark")
   }
 
+  const [likeselecionado, setSelec] = React.useState(false)
   const [likezinho, setLike] = React.useState("Heart-outline")
   const [cor, setCor] = React.useState("")
   const [salvo, setSalvo] = React.useState("bookmark-outline")
+
+
+
   return (
       <div class="post">
         <div class="topo">
@@ -45,7 +57,7 @@ function PostsLayout(props) {
           <div class="curtidas">
             <img src={props.imagemcurtida} />
             <div class="texto">
-              Curtido por <strong>{props.usuariocurtida}</strong> e <strong>outras {props.curtidas} pessoas</strong>
+              Curtido por <strong>{props.usuariocurtida}</strong> e <strong>outras{props.curtidas} pessoas</strong>
             </div>
           </div>
         </div>
@@ -58,6 +70,9 @@ function PostsLayout(props) {
 
 
 export default function Posts() {
+
+  
+
 
   const postagens = [
     {imagemusuario: "assets/img/meowed.svg", usuario: "meowed" , imagempost: "assets/img/gato-telefone.svg"  , imagemcurtida: "assets/img/respondeai.svg" ,  usuariocurtida: "respondeai" , curtidas: "101.523"},
